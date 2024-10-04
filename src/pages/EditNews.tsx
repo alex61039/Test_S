@@ -1,20 +1,15 @@
-/*import React from 'react'*/
-/*import {INews} from "../interfaces";*/
-/*import {Input} from '@mui/material'*/
 import {useParams} from 'react-router-dom'
+import {UpdateNews} from '../components/editNews'
+
 
 
 export const EditNews = () => {
     let params = useParams()
 
-    console.log("<<>>", params)
-
-
     return (
         <>
-
-            <h2>Edit page</h2>
-          {/*  <Input/>*/}
+            <h3 style={{marginTop:100}}>Редактирование</h3>
+           <UpdateNews id={params.id}></UpdateNews>
         </>
     )
 }

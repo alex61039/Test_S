@@ -15,11 +15,12 @@ let navigate = useNavigate()
             width: "100%",
             position: "fixed",
             top:0,
-            left:0
+            left:0,
+            zIndex:100
 
         }}>
             <h2>Свежие новости</h2>
-            <Button variant={"text"} style={{marginLeft: `calc(80% - 5px)`}} onClick={() =>{navigate('/EditNews')} }>Добавить новость</Button>
+            <Button variant={"text"} style={{marginLeft: `calc(80% - 5px)`}} onClick={() =>{navigate('/CreateNews')} }>Добавить новость</Button>
         </Box>
     )
 }

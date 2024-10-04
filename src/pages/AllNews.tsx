@@ -1,27 +1,26 @@
-import  {FC} from "react";
-/*import {MyHeader} from "../components/header";*/
-
-
+import  {FC, useEffect, useState} from "react";
 import {Cards} from "../components/cards";
-
+import {INews} from "../interfaces";
 
 export const AllNews: FC = () => {
 
-    let cards = localStorage.getItem('news');
-    const data = cards&&JSON.parse(cards);
+    const [listNews, setListNews] = useState<INews[]>([])
+
+    useEffect( () => {
+        let cards = localStorage.getItem('news');
+        let data = cards&&JSON.parse(cards);
+        setListNews(data)
+    }, [listNews])
+
+
 
     return(
         <>
-          {/*  <MyHeader/>*/}
             {
-                data&&
-                <Cards arrCard={data}/>
+                listNews&&
+                <Cards arrCard={listNews}/>
             }
-
         </>
     )
-
-
-
 
 }
