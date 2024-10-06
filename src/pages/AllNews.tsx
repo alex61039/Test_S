@@ -7,7 +7,9 @@ import {getNewsByLocalStorage} from "../utilites/filterArr.ts";
 
 export const AllNews: FC = () => {
 
-    const [listNews, setListNews] = useState<INews[]>([])
+    const [listNews, setListNews] = useState<INews[]>(
+        getNewsByLocalStorage()
+    )
 
 
     const getNews = () => {

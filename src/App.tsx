@@ -1,5 +1,5 @@
 import  {useEffect} from 'react'
-import {data} from '../data.ts'
+import {data} from './data.ts'
 import {AppRoute} from "./components/appRoute";
 import {Layout} from './components/layout'
 import './App.css'
