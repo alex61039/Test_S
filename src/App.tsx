@@ -7,6 +7,7 @@ import './App.css'
 function App() {
 
     const myStorage = window.localStorage;
+    myStorage.setItem("news", JSON.stringify(data));
 
     useEffect( () => {
         myStorage.setItem("news", JSON.stringify(data))
