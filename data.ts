@@ -13,7 +13,7 @@ export const data =
             article_id: "c426696ccb90c6e73374758dfbae24bf",
             title: "Марко Николич назвал непростой победу ЦСКА над «Пари НН»",
             description: "Наставник ЦСКА Марко Николич высказал свою оценку успеху над командой 'Пари НН' (2:0) в рамках российского Кубка",
-            pubDate: "2024-10-02",
+            pubDate: "2024-10-03",
             image_url: "https://static.mk.ru/upload/entities/2024/10/02/07/articles/facebookPicture/0a/bb/7d/f8/a246f987d72e50d7b0e89f668c96db6f.jpg",
             category: "спорт"
         },
@@ -53,7 +53,7 @@ export const data =
            article_id: "69e566d5c0884ec4f41ab46e5145ef8a",
            title: "Арабские СМИ: ракетные удары Ирана показали беспомощность западной ПВО",
            description: "Главный вопрос:  каким будет ответ Израиля",
-           pubDate: "2024-10-02",
+           pubDate: "2024-10-04",
            image_url: "https://static.mk.ru/upload/entities/2024/10/02/09/articles/facebookPicture/08/21/46/05/854e4d00cdaf44fd0d0a0e0c93e8f525.jpg",
            category: "политика"
        }

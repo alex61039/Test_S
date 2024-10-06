@@ -8,3 +8,13 @@ export const filterArrById = (id: string | null | undefined) => {
         return item;
     }
 }
+
+export const getNewsByLocalStorage = () => {
+
+    var arrData = [] as INews[]
+    let arrNews = localStorage.getItem('news');
+    if (arrNews !== null) {
+        arrData = arrNews && JSON.parse(arrNews);
+    }
+    return arrData
+}

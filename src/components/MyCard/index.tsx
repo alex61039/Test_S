@@ -8,24 +8,33 @@ import Typography from '@mui/material/Typography';
 import {DeleteOutlined, EditOutlined} from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
 import {useNavigate} from 'react-router-dom'
-import {filterArrById} from '../../utilites/filterArr.ts'
+import {filterArrById, getNewsByLocalStorage} from '../../utilites/filterArr.ts'
 import jpg from '../../assets/271.jpg'
 
-export const MyCard = memo(
-    ({news}: { news: INews }) => {
-        let navigation = useNavigate();
-        var arrData = [] as INews[]
-        let arrNews = localStorage.getItem('news');
-        if (arrNews !== null) {
-            arrData = arrNews && JSON.parse(arrNews);
-        }
 
-        const deleteHandle = (id: string) => {
+interface IPropsCard {
+    news: INews,
+    updNews: (arg: INews[])=> void
+}
+export const MyCard = memo(
+    (props: IPropsCard) => {
+        const {news, updNews} = props
+
+        let navigation = useNavigate();
+
+        var arrData = getNewsByLocalStorage()
+
+        const deleteNews = (id: string) => {
+
             if (id !== null) {
                 var deleteNews = filterArrById(id);
                 var newList = arrData.filter((item) => item.article_id !== deleteNews?.article_id);
                 localStorage.removeItem('news');
                 localStorage.setItem('news', JSON.stringify(newList));
+
+                const newData = getNewsByLocalStorage();
+                updNews(newData);
+
             }
         }
 
@@ -37,6 +46,9 @@ export const MyCard = memo(
                     title={news.title}
                 />
                 <CardContent>
+                    <Typography style={{fontSize: 12}}  component="div">
+                        {news.pubDate}
+                    </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                         {news.title}
                     </Typography>
@@ -47,13 +59,13 @@ export const MyCard = memo(
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: "center", padding: 5, marginBottom: 5, alignContent: "flex-end"}}>
-                    <IconButton>
-                        <DeleteOutlined onClick={() => deleteHandle(news.article_id)}/>
+                    <IconButton onClick={() => deleteNews(news.article_id)}>
+                        <DeleteOutlined />
                     </IconButton>
-                    <IconButton>
-                        <EditOutlined onClick={() => {
-                            navigation(`/EditNews/${news.article_id}`)
-                        }}/>
+                    <IconButton onClick={() => {
+                        navigation(`/EditNews/${news.article_id}`)
+                    }}>
+                        <EditOutlined />
                     </IconButton>
 
                 </CardActions>

@@ -1,0 +1,48 @@
+
+@media  screen and (min-width: 360px) and (max-width:450px ){
+    .textField{
+        width: 350px !important;
+        margin-bottom: 15px !important;
+    }
+    .textArea{
+        width: 350px !important;
+        margin-bottom: 15px !important;
+        min-height: 140px !important;
+    }
+    .form{
+        margin-top: 100px !important;
+    }
+
+}
+
+@media  screen and (min-width: 760px) and (max-width: 1025px){
+    .textField{
+        width: 600px !important;
+        margin-bottom: 15px !important;
+    }
+    .textArea{
+        width: 600px !important;
+        margin-bottom: 15px !important;
+        min-height: 140px !important;
+    }
+    .form{
+        margin-top: 10px !important;
+    }
+}
+
+
+@media  screen and (min-width: 1200px){
+    .textField{
+        width: 600px !important;
+        margin-bottom: 15px !important;
+    }
+    .textArea{
+        width: 600px !important;
+        margin-bottom: 15px !important;
+        min-height: 140px !important;
+    }
+    .form{
+        margin-top: 60px !important;
+    }
+}
+

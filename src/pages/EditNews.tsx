@@ -1,5 +1,6 @@
 import {useParams} from 'react-router-dom'
 import {UpdateNews} from '../components/editNews'
+import {Stack} from "@mui/material";
 
 
 
@@ -7,9 +8,8 @@ export const EditNews = () => {
     let params = useParams()
 
     return (
-        <>
-            <h3 style={{marginTop:100}}>Редактирование</h3>
+        <Stack>
            <UpdateNews id={params.id}></UpdateNews>
-        </>
+        </Stack>
     )
 }

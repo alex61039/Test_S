@@ -6,6 +6,7 @@ import { Button, Stack, TextField} from '@mui/material'
 import Textarea from '@mui/joy/Textarea'
 import Typography from '@mui/joy/Typography';
 import {useNavigate} from 'react-router-dom'
+import styled from '../newItemNews/newItem.module.css'
 
 
 
@@ -59,18 +60,21 @@ export const UpdateNews = ({id}:{id:string | null | undefined}) => {
     }
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styled.form}>
             <Stack>
+                <h3>Редактирование</h3>
                 <Typography
                     level="body-lg"
-                    sx={{ fontFamily: 'monospace' }}
+                    sx={{ fontFamily: 'monospace', fontWeight:600 }}
                 >Название новости</Typography>
                 <TextField id="outlined-basic"
                            variant={'outlined'}
                            placeholder={'Введите наименование'}
                            maxRows={3}
                            multiline={true}
-                           style={{width: 500, marginBottom:15}} type={'text'} autoFocus
+                          /* style={{width: 500, marginBottom:15}}*/
+                            className={styled.textField}
+                           type={'text'} autoFocus
                            {...register('title', {required: {value: true, message: "обязательное поле"}})}
                 />
                 {
@@ -80,49 +84,56 @@ export const UpdateNews = ({id}:{id:string | null | undefined}) => {
 
                 <Typography
                     level="body-lg"
-                    sx={{ fontFamily: 'monospace' }}
+                    sx={{ fontFamily: 'monospace', fontWeight:600}}
                 >Дата</Typography>
                 <TextField id="outlined-basic"
                            variant={'outlined'}
                            placeholder={'Введите дату'}
-                           style={{width: 500, marginBottom:15}} type={'date'}
+                          /* style={{width: 500, marginBottom:15}}*/
+                           className={styled.textField}
+                           type={'date'}
                            {...register('pubDate', {required: {value: true, message: "обязательное поле"}})}
                 />
                 {errors.pubDate?(<span style={{color:'red'}}>{errors.pubDate&&errors.pubDate.message}</span>): null}
 
                 <Typography
                     level="body-lg"
-                    sx={{ fontFamily: 'monospace' }}
+                    sx={{ fontFamily: 'monospace', fontWeight:600 }}
                 >Изображение</Typography>
                 <TextField id="outlined-basic"
                            variant={'outlined'}
                            placeholder={'Введите адрес изображения'}
                            maxRows={3}
                            multiline={true}
-                           style={{width: 500, marginBottom:15}} type={'text'}
+                           /*style={{width: 500, marginBottom:15}}*/
+                           className={styled.textField}
+                           type={'text'}
                            {...register('image_url', {required: false})}
                 />
-                {errors&&<span></span>}
+
 
                 <Typography
                     level="body-lg"
-                    sx={{ fontFamily: 'monospace' }}
+                    sx={{ fontFamily: 'monospace', fontWeight:600 }}
                 >Категория новости</Typography>
                 <TextField id="outlined-basic"
                            variant={'outlined'}
                            placeholder={'Введите наименование категории'}
-                           style={{width: 500, marginBottom:15}} type={'text'}
+                          /* style={{width: 500, marginBottom:15}}*/
+                           className={styled.textField}
+                           type={'text'}
                            {...register('category', {required: false})}
                 />
-                {errors&&<span></span>}
+
 
                 <Typography
                     level="body-lg"
-                    sx={{ fontFamily: 'monospace' }}
+                    sx={{ fontFamily: 'monospace', fontWeight:600}}
                 >Общее описание</Typography>
                 <Textarea
                     variant={'soft'}
-                    style={{width:500, minHeight:140, marginBottom:15}}
+                    /*style={{width:500, minHeight:140, marginBottom:15}}*/
+                    className={styled.textArea}
                     {...register('description', {required: {value: true, message: "обязательное поле"}})}  />
                 {errors.description?(<span style={{color:'red'}}>{errors.description&&errors.description.message}</span>): null}
 
